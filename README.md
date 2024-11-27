@@ -76,3 +76,5 @@ python pinn.py
 | 80     |  3.3e-01    |
 | 100    |  4.1e-01    |
 | 200    |  3.4e-01    |
+
+The reproduced results are similar to the original table. The differences may be due to hyperparameters.
