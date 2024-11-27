@@ -63,6 +63,7 @@ Coupling Flow has a slow learning speed.
 This is an implementation of a physics-informed neural network (PINN) for learning the Burger equation. It is based on the lecture note of IE552/AI603: Neural Differential Equations Physics Informed Deep Learning Dr. Sungil Kim.
 
 ### Implementation
+PINNs are neural networks trained to perform supervised learning tasks while obeying the laws of physics described by general nonlinear partial differential equations (PDEs). Nf is the number of collocation points for PDE enforcement, and Nu is the number of points for boundary and initial conditions. The neural network is an MLP with nine Tanh activation layers, and the loss function is defined as the sum of the boundary and initial condition errors (MSEu) and the PDE residual error (MSEf). The L2 error is calculated for each Nu value to compare the performance.
 ```
 python pinn.py
 ```
@@ -70,11 +71,11 @@ python pinn.py
 ### Results
 | Nu     |  Nf = 2000  |
 |--------|-------------|
-| 20     |  4.6e-01    |
+| 20     |  4.0e-01    |
 | 40     |  3.6e-01    |
-| 60     |  4.3e-01    |
-| 80     |  3.3e-01    |
-| 100    |  4.1e-01    |
-| 200    |  3.4e-01    |
+| 60     |  3.2e-01    |
+| 80     |  4.1e-01    |
+| 100    |  3.9e-01    |
+| 200    |  2.8e-01    |
 
-The reproduced results are similar to the original table. The differences may be due to hyperparameters.
+The reproduced results are similar to the original table. The prediction accuracy improves as Nu increases due to the increase in boundary condition information. This shows that encoding the structure of the fundamental physical laws through the coupling points Nf enables more accurate and data-efficient learning algorithms. The minor differences may be due to hyperparameters or random seed.
